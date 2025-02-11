@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://0vu17mmr8lg4"]
+
+[ext_resource type="PackedScene" uid="uid://c81bee60iacox" path="res://SCENES/SingleTank.tscn" id="1_q40sm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Cuerpo" parent="." instance=ExtResource("1_q40sm")]
+position = Vector2(145, 198)
+
+[node name="Camera2D" type="Camera2D" parent="."]

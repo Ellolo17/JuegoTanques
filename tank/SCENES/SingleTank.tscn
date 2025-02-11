@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c81bee60iacox"]
+
+[ext_resource type="Texture2D" uid="uid://dwymg4elbqcu4" path="res://2D/Cuerpo.png" id="1_6ign3"]
+[ext_resource type="Script" path="res://SCENES/TankControl.gd" id="1_k4eld"]
+[ext_resource type="PackedScene" uid="uid://djff6ikoco4ce" path="res://SCENES/torre.tscn" id="2_36o6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twaxk"]
+size = Vector2(32, 32)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_k4eld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_twaxk")
+
+[node name="Cuerpo" type="Sprite2D" parent="."]
+texture = ExtResource("1_6ign3")
+
+[node name="Torre" parent="Cuerpo" instance=ExtResource("2_36o6p")]

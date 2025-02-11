@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://djff6ikoco4ce"]
+
+[ext_resource type="Material" uid="uid://bangb1p4ps80f" path="res://RESOURCES/new_shader_material.tres" id="1_y2cyh"]
+[ext_resource type="Texture2D" uid="uid://cwy64sjwf7rb3" path="res://2D/Torre.png" id="2_wxa1h"]
+[ext_resource type="Script" path="res://CODE/LookAtMouse.gd" id="3_nwxp8"]
+
+[node name="Torre" type="Sprite2D"]
+material = ExtResource("1_y2cyh")
+texture = ExtResource("2_wxa1h")
+offset = Vector2(0, -10)
+script = ExtResource("3_nwxp8")
+
+[node name="ShootSpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -25)
