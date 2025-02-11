@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqdqmp6u08h37"]
+
+[ext_resource type="Material" uid="uid://bangb1p4ps80f" path="res://RESOURCES/new_shader_material.tres" id="1_74ljy"]
+[ext_resource type="Script" path="res://SCENES/MoveForwardUntilCollisionOrDie.gd" id="1_rsalc"]
+[ext_resource type="Texture2D" uid="uid://dl3uok755dgaw" path="res://2D/bala.png" id="2_sqxs8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4sa6p"]
+radius = 4.0
+
+[node name="Bala" type="CharacterBody2D"]
+script = ExtResource("1_rsalc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4sa6p")
+
+[node name="BalaImg" type="Sprite2D" parent="."]
+material = ExtResource("1_74ljy")
+position = Vector2(0, 1)
+texture = ExtResource("2_sqxs8")
