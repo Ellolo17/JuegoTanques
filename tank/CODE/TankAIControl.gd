@@ -1,21 +1,4 @@
-extends CharacterBody2D
-
-class_name Tank
-
-# speed
-var speed = 0
-@export var maxSpeed = 100
-@export var minSpeed = -75
-@export var accelerationForward = 5
-@export var accelerationBackward = 1
-@export var brakeSpeed = 1
-
-# rotation
-@export var rotation_speed = 1.5
-var rotation_direction = 0
-
-# life
-@export var life = 100
+extends Tank
 
 func _ready() -> void:
 	$SpriteCuerpo/SpriteTorre.parent = self
@@ -76,7 +59,3 @@ func _physics_process(delta: float) -> void:
 			
 func hit(damage):
 	life = life - damage
-
-# An object entered the area2d. If its player, tarjet that
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.

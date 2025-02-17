@@ -15,7 +15,7 @@ var parent:CharacterBody2D
 
 func start(_position, _direction):
 	# set
-	rotation = _direction
+	global_rotation = _direction
 	position = _position
 	
 	#adjust rotation
@@ -32,19 +32,16 @@ func _process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	
 	#If it hit something, emit the signal from earlier
-	while (collision and collision_count < max_collisions):
+	if (collision and collision_count < max_collisions):
 		var collider = collision.get_collider()
 		if(collider == parent):
-			queue_free()
+			return
 			
 		if(collider != parent):
 			if collider is Tank:
-				print ("collider hit enemy tank")
 				collider.hit(damage)
 				queue_free()
-				break
 			else:
-				print ("collider hit another item: " + collider.get)
 				var normal = collision.get_normal()
 				var remainder = collision.get_remainder()
 				velocity = velocity.bounce(normal)
@@ -52,5 +49,6 @@ func _process(delta: float) -> void:
 				direction = velocity
 				
 				collision_count += 1
+				if(collision_count > max_collisions): queue_free()
 				collision = move_and_collide(remainder)
 	pass

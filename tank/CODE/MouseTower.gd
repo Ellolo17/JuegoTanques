@@ -32,7 +32,7 @@ func shoot():
 
 func shootBullet():
 	var b = bullet.instantiate()
-	b.start($ShootSpawnPoint.global_position, (rotation - (PI/2)))
+	b.start($ShootSpawnPoint.global_position, global_rotation - PI/2)
 	b.parent = self.parent # to prevent collision with parent
 	get_tree().root.add_child(b)
 	
