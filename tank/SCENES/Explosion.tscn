@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvp5wvuu6d788"]
+
+[ext_resource type="Material" uid="uid://bangb1p4ps80f" path="res://RESOURCES/new_shader_material.tres" id="1_lpl3k"]
+[ext_resource type="Texture2D" uid="uid://c0xec2fd4md3s" path="res://2D/explosion.png" id="2_bgspb"]
+[ext_resource type="Texture2D" uid="uid://8q3umxxobxno" path="res://2D/explosion2.png" id="3_mqnqu"]
+[ext_resource type="Script" path="res://CODE/dissapearWithTime.gd" id="3_u6x0b"]
+[ext_resource type="Texture2D" uid="uid://cgnhmeothy3yr" path="res://2D/explosion3.png" id="4_jkv4p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvxbg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bgspb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mqnqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jkv4p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Explosion" type="Node2D"]
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+material = ExtResource("1_lpl3k")
+sprite_frames = SubResource("SpriteFrames_uvxbg")
+frame_progress = 0.85483
+script = ExtResource("3_u6x0b")

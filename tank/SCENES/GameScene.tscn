@@ -4,7 +4,8 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Cuerpo" parent="." instance=ExtResource("1_q40sm")]
+[node name="Tanque" parent="." instance=ExtResource("1_q40sm")]
+z_index = 1
 position = Vector2(145, 198)
 
 [node name="Camera2D" type="Camera2D" parent="."]

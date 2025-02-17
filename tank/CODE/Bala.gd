@@ -12,12 +12,16 @@ var direction:Vector2
 var timeToDie
 var parent:CharacterBody2D
 
-signal hit_something
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func start(_position, _direction):
+	# set
+	rotation = _direction
+	position = _position
+	
+	#adjust rotation
+	velocity = Vector2(speed, 0).rotated(rotation)
 	timeToDie = Time.get_ticks_msec() + lifeTime
-	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,19 +29,22 @@ func _process(delta: float) -> void:
 	if(Time.get_ticks_msec() > timeToDie):
 		queue_free()
 	
-	velocity = speed * direction
 	var collision = move_and_collide(velocity * delta)
 	
 	#If it hit something, emit the signal from earlier
 	while (collision and collision_count < max_collisions):
 		var collider = collision.get_collider()
-		
+		if(collider == parent):
+			queue_free()
+			
 		if(collider != parent):
-			if collider is Tanque:
+			if collider is Tank:
+				print ("collider hit enemy tank")
 				collider.hit(damage)
 				queue_free()
 				break
 			else:
+				print ("collider hit another item: " + collider.get)
 				var normal = collision.get_normal()
 				var remainder = collision.get_remainder()
 				velocity = velocity.bounce(normal)

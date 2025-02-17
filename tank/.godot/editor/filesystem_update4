@@ -1,0 +1,10 @@
+res://SCENES/SingleTank.tscn
+res://CODE/TankControl.gd
+res://SCENES/torre.tscn
+res://CODE/LookAtMouse.gd
+res://SCENES/GameScene.tscn
+res://SCENES/Bala.tscn
+res://SCENES/Explosion.tscn
+res://CODE/MouseTower.gd
+res://CODE/Bala.gd
+res://CODE/dissapearWithTime.gd

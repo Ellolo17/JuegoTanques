@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="Tank"
+run/main_scene="res://SCENES/GameScene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="res://iconoNuevo.svg"
+config/icon="res://iconoNuevo.svg"
 
 [rendering]
 
